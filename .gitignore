@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Data / models / keys
+*.db
+chroma/
+data/
+keys/
+*.pem
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store

@@ -16,13 +16,13 @@ Retrieval-augmented generation where every answer ships with a cryptographic pro
 
 ## Why this exists
 
-Standard RAG gives you **citations you have to trust**. LedgerRAG gives you **citations you can verify** — and detects source tampering automatically.
+Standard RAG gives you **citations you have to trust**. LedgerRAG gives you **citations you can verify** - and detects source tampering automatically.
 
 Enterprises in regulated domains (finance, healthcare, legal, government) can't adopt RAG at scale because they can't prove:
 
-- **Provenance** — which exact source produced this answer?
-- **Integrity** — has that source been altered since it was indexed?
-- **Non-repudiation** — can a third party verify the answer *without trusting the server*?
+- **Provenance** - which exact source produced this answer?
+- **Integrity** - has that source been altered since it was indexed?
+- **Non-repudiation** - can a third party verify the answer *without trusting the server*?
 
 LedgerRAG solves all three by committing every ingested chunk into an append-only **Merkle-tree ledger** and returning a **Merkle inclusion proof + Ed25519 signature** with every answer.
 
@@ -31,11 +31,11 @@ LedgerRAG solves all three by committing every ingested chunk into an append-onl
 ```
 INGEST:  document → chunk → SHA-256 hash → append to Merkle ledger → embed → sign root
 QUERY:   question → retrieve chunks → LLM answer → attach inclusion proofs + signed root
-VERIFY:  independent CLI recomputes the Merkle path and checks the signature —
+VERIFY:  independent CLI recomputes the Merkle path and checks the signature -
          proving the answer is grounded in untampered sources, without trusting the server
 ```
 
-If a source is tampered with after indexing, its chunk hash no longer verifies against the signed root — LedgerRAG detects the drift and refuses to serve altered content.
+If a source is tampered with after indexing, its chunk hash no longer verifies against the signed root - LedgerRAG detects the drift and refuses to serve altered content.
 
 ## Quickstart (<5 min)
 
@@ -75,7 +75,7 @@ frontend/  React proof-panel UI (verified ✅ / tampered ❌)
 
 ## Cross-language verification (polyglot proof)
 
-LedgerRAG's promise — *verify an answer without trusting the server* — is proven by **three independent verifiers in three languages**, each re-verifying the exact same Python-produced proof:
+LedgerRAG's promise - *verify an answer without trusting the server* - is proven by **three independent verifiers in three languages**, each re-verifying the exact same Python-produced proof:
 
 | Verifier | Stack | Location |
 |----------|-------|----------|
@@ -90,7 +90,7 @@ dotnet run -c Release -- ../sample-response.json           # ✅ VERIFIED (C#)
 java -jar target/ledgerrag-verifier-0.1.0.jar ../sample-response.json  # ✅ VERIFIED (Java)
 ```
 
-Three languages, three crypto stacks, one proof — that's what makes the verifiability **standards-based, not a trick**. Tamper with any cited source and all three reject it.
+Three languages, three crypto stacks, one proof - that's what makes the verifiability **standards-based, not a trick**. Tamper with any cited source and all three reject it.
 
 ## Feature checklist
 
@@ -108,7 +108,7 @@ Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chr
 
 ## Roadmap
 
-Part of [parag-labs](https://github.com/parag-labs) — small, focused tools for building AI systems you can trust.
+Part of [parag-labs](https://github.com/parag-labs) - small, focused tools for building AI systems you can trust.
 
 ## License
 

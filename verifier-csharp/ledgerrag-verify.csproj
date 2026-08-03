@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>ledgerrag-verify</AssemblyName>
+    <RootNamespace>LedgerRag.Verifier</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Ed25519 is not in System.Security.Cryptography; BouncyCastle is the standard. -->
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
+  </ItemGroup>
+
+</Project>

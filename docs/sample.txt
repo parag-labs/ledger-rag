@@ -1,0 +1,12 @@
+Refund Policy
+
+Customers may request a full refund within 30 days of purchase. Refunds are
+processed to the original payment method within 5-7 business days. Digital goods
+are refundable only if they have not been downloaded. Subscription plans can be
+cancelled at any time; the cancellation takes effect at the end of the current
+billing cycle, and no partial refunds are issued for unused time.
+
+Security Note
+
+All customer data is encrypted in transit and at rest. Access to production
+systems follows least-privilege and requires multi-factor authentication.

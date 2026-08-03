@@ -1,0 +1,114 @@
+{
+  "answer": "Based on source [policy.txt#3]: g rules in detail. Section 21: policy clause number 21 describes refund, security, and data handling rules in detail. Section 22: policy clause number 22 describes refund, security, and data handling rules in detail. Section 23: policy clause number 23 describes refund, security, and data handling rules in detail. Section 24: policy clause number 24 describes refund, security, and data handling ru\n\n(Answer grounded on 4 ledger-verified source(s).)",
+  "citations": [
+    {
+      "chunk_id": "146b468c",
+      "doc_id": "policy.txt",
+      "seq": 3,
+      "text": "g rules in detail. Section 21: policy clause number 21 describes refund, security, and data handling rules in detail. Section 22: policy clause number 22 describes refund, security, and data handling rules in detail. Section 23: policy clause number 23 describes refund, security, and data handling rules in detail. Section 24: policy clause number 24 describes refund, security, and data handling rules in detail. Section 25: policy clause number 25 describes refund, security, and data handling rules in detail. Section 26: policy clause number 26 describes refund, security, and data handling rules in detail. Section 27: policy clause number 27 describes refund, security, and data handling rules in detail. Section 28: policy clause number 28 describes refund, security, and data handling rules"
+    },
+    {
+      "chunk_id": "57f8eafc",
+      "doc_id": "policy.txt",
+      "seq": 2,
+      "text": "tail. Section 14: policy clause number 14 describes refund, security, and data handling rules in detail. Section 15: policy clause number 15 describes refund, security, and data handling rules in detail. Section 16: policy clause number 16 describes refund, security, and data handling rules in detail. Section 17: policy clause number 17 describes refund, security, and data handling rules in detail. Section 18: policy clause number 18 describes refund, security, and data handling rules in detail. Section 19: policy clause number 19 describes refund, security, and data handling rules in detail. Section 20: policy clause number 20 describes refund, security, and data handling rules in detail. Section 21: policy clause number 21 describes refund, security, and data handling rules in detail. Se"
+    },
+    {
+      "chunk_id": "3e241a0c",
+      "doc_id": "policy.txt",
+      "seq": 5,
+      "text": "security, and data handling rules in detail. Section 35: policy clause number 35 describes refund, security, and data handling rules in detail. Section 36: policy clause number 36 describes refund, security, and data handling rules in detail. Section 37: policy clause number 37 describes refund, security, and data handling rules in detail. Section 38: policy clause number 38 describes refund, security, and data handling rules in detail. Section 39: policy clause number 39 describes refund, security, and data handling rules in detail."
+    },
+    {
+      "chunk_id": "0d56fd1f",
+      "doc_id": "policy.txt",
+      "seq": 4,
+      "text": "data handling rules in detail. Section 28: policy clause number 28 describes refund, security, and data handling rules in detail. Section 29: policy clause number 29 describes refund, security, and data handling rules in detail. Section 30: policy clause number 30 describes refund, security, and data handling rules in detail. Section 31: policy clause number 31 describes refund, security, and data handling rules in detail. Section 32: policy clause number 32 describes refund, security, and data handling rules in detail. Section 33: policy clause number 33 describes refund, security, and data handling rules in detail. Section 34: policy clause number 34 describes refund, security, and data handling rules in detail. Section 35: policy clause number 35 describes refund, security, and data ha"
+    }
+  ],
+  "proofs": [
+    {
+      "chunk_id": "146b468c",
+      "leaf_index": 3,
+      "sha256": "04861305cc6843c5fc7b77a3b7c1f89992cb5640e295738f011f0378d875ef0c",
+      "merkle_path": [
+        {
+          "sibling": "49937de9d5815fa5353f33803530fc948ba79b6d60e464ba742365827bfd043e",
+          "side": "left"
+        },
+        {
+          "sibling": "bd26ca4ffc70423d258b7cda6b7242a7d969fabfd5e08633dc66163cc0f1a3c2",
+          "side": "left"
+        },
+        {
+          "sibling": "fd136a516ff3f05b6461b4c34212ccbfe5338122646268b6f39fdf474a3238e6",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "chunk_id": "57f8eafc",
+      "leaf_index": 2,
+      "sha256": "f9c8202c615dae5e8a609262dc175b8372f27bb6f415cca5164a18f9cceb1bd9",
+      "merkle_path": [
+        {
+          "sibling": "338c0cacf6323c065f014a18ecb655aaf6b3a9cdc820b404013b355b5c197ca0",
+          "side": "right"
+        },
+        {
+          "sibling": "bd26ca4ffc70423d258b7cda6b7242a7d969fabfd5e08633dc66163cc0f1a3c2",
+          "side": "left"
+        },
+        {
+          "sibling": "fd136a516ff3f05b6461b4c34212ccbfe5338122646268b6f39fdf474a3238e6",
+          "side": "right"
+        }
+      ]
+    },
+    {
+      "chunk_id": "3e241a0c",
+      "leaf_index": 5,
+      "sha256": "7a21663beb8095e08301c7673a87d1ce80e4e4807475ab9918ce074f42732431",
+      "merkle_path": [
+        {
+          "sibling": "78d34232fa26bd625010fc423603e210d7cc715ced7867c3a7b4ed2c54cafe4c",
+          "side": "left"
+        },
+        {
+          "sibling": "0d794183ae5946065d1e1a02e67cfbcbf931ca7fd1821bbe22fcc13f7d3f2eca",
+          "side": "right"
+        },
+        {
+          "sibling": "af9ea1032de4deed91f220b3a1cb346225ae7ca5beb89c1d6b877e033c72a513",
+          "side": "left"
+        }
+      ]
+    },
+    {
+      "chunk_id": "0d56fd1f",
+      "leaf_index": 4,
+      "sha256": "ab219a63f2c8143c2bc76c64fa414a811f73be9896e6d33f265e7da63021c210",
+      "merkle_path": [
+        {
+          "sibling": "e4edd6e2dea111c5ee42f40e2cbe6bc751b8b6fa05c36f084264b759c0e57604",
+          "side": "right"
+        },
+        {
+          "sibling": "0d794183ae5946065d1e1a02e67cfbcbf931ca7fd1821bbe22fcc13f7d3f2eca",
+          "side": "right"
+        },
+        {
+          "sibling": "af9ea1032de4deed91f220b3a1cb346225ae7ca5beb89c1d6b877e033c72a513",
+          "side": "left"
+        }
+      ]
+    }
+  ],
+  "signed_root": {
+    "root": "10e5252ee724edd976b04700752165c2ac6b47bc5201c2633b43fe3f731bd08b",
+    "prev_root": "4fcc9242841598a4d96c6142acd3bdeb5ee5b8e00c8939195f632a148ecd9b3d",
+    "leaf_count": 6,
+    "signature": "d25b88230b3a060c25d69763d4733beee8a46370cba980a114bbc8384bbd4c778c8b20ba186d93877fa79e588ee21415a402589d4eb9fc3f0a7acad08c859106",
+    "public_key": "d6dee860098597f7dd766b685b6af335e519d7b1a468008a4d3eda424d811a3d"
+  }
+}

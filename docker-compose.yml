@@ -1,0 +1,9 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - LEDGERRAG_EMBEDDING_PROVIDER=local
+      - LEDGERRAG_LLM_PROVIDER=local
+      - LEDGERRAG_VECTOR_STORE=chroma

@@ -9,8 +9,8 @@ from __future__ import annotations
 import hashlib
 import uuid
 
-from app.core.embeddings import embed
 from app.core.config import settings
+from app.core.embeddings import embed
 from app.core.models import (
     Citation,
     Proof,

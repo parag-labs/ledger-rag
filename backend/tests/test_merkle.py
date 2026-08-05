@@ -7,7 +7,7 @@ forged proof) is rejected.
 
 import pytest
 
-from app.ledger.merkle import MerkleTree, verify_inclusion, hash_leaf
+from app.ledger.merkle import MerkleTree, hash_leaf, verify_inclusion
 from app.ledger.signing import generate_keypair, sign_root, verify_root
 
 

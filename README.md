@@ -62,8 +62,6 @@ docker compose up
 
 ## Architecture
 
-See [`plan.md`](./plan.md) for the full design. High level:
-
 ```
 backend/app/
   api/     FastAPI routes: /ingest, /query, /verify, /ledger

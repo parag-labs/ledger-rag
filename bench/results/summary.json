@@ -1,0 +1,38 @@
+{
+  "proof_size": {
+    "entries": [
+      1,
+      10,
+      100,
+      1000,
+      10000,
+      100000,
+      1000000
+    ],
+    "proof_steps": [
+      0,
+      4,
+      7,
+      10,
+      14,
+      17,
+      20
+    ],
+    "proof_bytes": [
+      0,
+      128,
+      224,
+      320,
+      448,
+      544,
+      640
+    ]
+  },
+  "verify_throughput": {
+    "tree_entries": 100000,
+    "proofs_verified": 5000,
+    "proof_verifies_per_sec": 43709,
+    "us_per_proof_verify": 22.88,
+    "sig_verifies_per_sec": 4278
+  }
+}

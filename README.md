@@ -104,6 +104,17 @@ Three languages, three crypto stacks, one proof - that's what makes the verifiab
 
 Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chroma · OpenAI (with local fallback) · React + Vite · Docker · GitHub Actions
 
+## Design notes and numbers
+
+- **[RFC.md](RFC.md)** - the threat model (tamper-*evident*, not tamper-proof against
+  the key holder), why domain-separated SHA-256 and chained ed25519 roots, and the
+  non-goals.
+- **[BENCHMARKS.md](BENCHMARKS.md)** - proof size is O(log n) (a million-entry ledger
+  yields a 640-byte, 20-hash proof) and verification throughput, with graphs.
+  Reproduce with `python bench/benchmark.py`.
+- **Tamper fuzz** (`backend/tests/test_tamper_fuzz.py`) - thousands of randomized
+  bit-flips against leaves, proofs, roots, and signatures; every corruption is caught.
+
 ## Roadmap
 
 Part of [parag-labs](https://github.com/parag-labs) - small, focused tools for building AI systems you can trust.

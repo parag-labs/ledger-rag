@@ -1,4 +1,4 @@
-# RFC 0001: ledger-rag design, trade-offs, and non-goals
+# ledger-rag: design, trade-offs, and non-goals
 
 Status: accepted
 Author: Parag Sawant

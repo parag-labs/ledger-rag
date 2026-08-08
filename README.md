@@ -106,7 +106,7 @@ Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chr
 
 ## Design notes and numbers
 
-- **[RFC.md](RFC.md)** - the threat model (tamper-*evident*, not tamper-proof against
+- **[DESIGN.md](DESIGN.md)** - the threat model (tamper-*evident*, not tamper-proof against
   the key holder), why domain-separated SHA-256 and chained ed25519 roots, and the
   non-goals.
 - **[BENCHMARKS.md](BENCHMARKS.md)** - proof size is O(log n) (a million-entry ledger

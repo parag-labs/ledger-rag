@@ -29,6 +29,10 @@ inclusion proof a third party can verify without trusting the server. Goals:
 
 This is the part worth being exact about.
 
+![threat model](docs/diagrams/threat-model.png)
+
+*(Source: [`docs/diagrams/threat-model.excalidraw`](docs/diagrams/threat-model.excalidraw) - open it in [excalidraw](https://aka.ms/excalidraw) to edit.)*
+
 - **What it protects against:** silent modification of indexed content or history.
   If someone flips a bit in a chunk, swaps a proof sibling, alters a root, or forges
   a signature with the wrong key, verification fails. The tamper-fuzz suite asserts
@@ -60,6 +64,13 @@ you can't reorder, truncate, or splice history without breaking a signature.
 **The verifier is pure and separable.** Verification needs only the leaf, the proof,
 and the trusted root/public key - no index, no server. That's why it ports cleanly to
 C# and Java: it's just hashing and one signature check.
+
+The full query path - and where the proof gets attached and checked - looks like this:
+
+![verifiable query sequence](docs/diagrams/verifiable-query-sequence.png)
+
+*(Source: [`docs/diagrams/verifiable-query-sequence.excalidraw`](docs/diagrams/verifiable-query-sequence.excalidraw).)*
+
 
 ## Trade-offs I made on purpose
 

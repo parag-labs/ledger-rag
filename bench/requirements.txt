@@ -1,0 +1,3 @@
+# the benchmark harness needs matplotlib to render the graphs; the ledger itself
+# only depends on `cryptography` (ed25519), pulled in via backend/requirements.txt.
+matplotlib>=3.7

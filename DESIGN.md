@@ -31,7 +31,7 @@ This is the part worth being exact about.
 
 ![threat model](docs/diagrams/threat-model.png)
 
-*(Source: [`docs/diagrams/threat-model.excalidraw`](docs/diagrams/threat-model.excalidraw) - open it in [excalidraw](https://aka.ms/excalidraw) to edit.)*
+*(The same diagram renders inline as Mermaid in the [README](README.md#how-it-works); this PNG is a static export.)*
 
 - **What it protects against:** silent modification of indexed content or history.
   If someone flips a bit in a chunk, swaps a proof sibling, alters a root, or forges
@@ -69,7 +69,7 @@ The full query path - and where the proof gets attached and checked - looks like
 
 ![verifiable query sequence](docs/diagrams/verifiable-query-sequence.png)
 
-*(Source: [`docs/diagrams/verifiable-query-sequence.excalidraw`](docs/diagrams/verifiable-query-sequence.excalidraw).)*
+*(The same diagram renders inline as Mermaid in the [README](README.md#how-it-works); this PNG is a static export.)*
 
 
 ## Trade-offs I made on purpose

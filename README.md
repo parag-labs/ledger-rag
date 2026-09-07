@@ -8,7 +8,7 @@ Retrieval-augmented generation where every answer ships with a cryptographic pro
   <img src="https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white" />
   <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" />
   <img src="https://img.shields.io/badge/crypto-Ed25519%20%2B%20SHA--256%20Merkle-orange" />
-  <img src="https://img.shields.io/badge/tests-11%20passing-brightgreen" />
+  <img src="https://img.shields.io/badge/tests-19%20passing-brightgreen" />
   <img src="https://img.shields.io/badge/license-MIT-green" />
 </p>
 
@@ -103,7 +103,7 @@ backend/app/
   core/    config, models, embeddings + LLM clients
   ledger/  Merkle tree, Ed25519 signing, append-only store   ← crypto core
   rag/     chunker, vector store, retriever, answer synthesis
-frontend/  React proof-panel UI (verified ✅ / tampered ❌)
+frontend/  (planned) React proof-panel UI (verified ✅ / tampered ❌)
 ```
 
 ## Cross-language verification (polyglot proof)
@@ -129,11 +129,11 @@ Three languages, three crypto stacks, one proof - that's what makes the verifiab
 
 - [x] Merkle-tree ledger with inclusion proofs
 - [x] Ed25519-signed, append-only, chained roots
-- [ ] RAG pipeline with citations
-- [ ] Proofs attached to every answer
-- [ ] Independent verifier CLI
-- [ ] Live tamper-detection demo
-- [ ] React proof-panel UI
+- [x] RAG pipeline with citations
+- [x] Proofs attached to every answer
+- [x] Independent verifier CLI (Python, C#, and Java)
+- [x] Tamper-detection, fuzz-tested (thousands of randomized corruptions, all caught)
+- [ ] React proof-panel UI *(planned — the backend already returns everything it needs)*
 
 ## Tech stack
 
@@ -152,17 +152,22 @@ Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chr
 
 ## Roadmap
 
+The backend, the three-language verifier, and the proof-carrying answer API are done.
+The one remaining piece is the **React proof-panel UI** — a browser view for asking a
+question and inspecting the verified/tampered proof. The `frontend/` directory is
+reserved for it.
+
 ## Layout
 
 ```
 ledger-rag/
 ├── backend/          the RAG service - indexing, retrieval, and the proof-carrying answer API
-├── frontend/         a small UI for asking questions and inspecting the proof
+├── frontend/         (planned) a small React UI for asking questions and inspecting the proof
 ├── verifier-csharp/  standalone .NET verifier - check a proof without trusting the server
 ├── verifier-java/    the same verifier, in Java
 ├── bench/            benchmark.py - indexing and verification throughput
 ├── docs/             architecture diagrams + a sample corpus
-├── docker-compose.yml  bring the backend + frontend up together
+├── docker-compose.yml  brings the backend up (the frontend UI is still planned)
 ├── DESIGN.md         the ledger structure, the proof format, the non-goals
 └── BENCHMARKS.md     reproducible numbers
 ```

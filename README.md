@@ -28,26 +28,23 @@ LedgerRAG solves all three by committing every ingested chunk into an append-onl
 
 ## How it works
 
-
 **Threat model**
 
 ```mermaid
 flowchart LR
-  classDef proc fill:#4a90e2,stroke:#2c5aa0,color:#fff
-  classDef good fill:#27ae60,stroke:#1e8449,color:#fff
-  classDef bad fill:#e74c3c,stroke:#c0392b,color:#fff
-  classDef work fill:#8e44ad,stroke:#6c3483,color:#fff
-  subgraph SRV["trust boundary - server side"]
-    CH["indexed chunks<br/>(Merkle leaves)"]:::proc
-    MT["Merkle tree<br/>+ signed roots"]:::work
-    KEY["signing key<br/>(Ed25519 priv)"]:::bad
-    RS["RAG server<br/>builds answer + attaches proof"]:::proc
+  classDef proc fill:#eff6ff,stroke:#3b82f6,color:#1e3a8a
+  classDef good fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef bad fill:#fef2f2,stroke:#ef4444,color:#7f1d1d
+  classDef work fill:#faf5ff,stroke:#a855f7,color:#581c87
+  subgraph SRV["Server (untrusted)"]
+    CH["Indexed chunks"]:::proc
+    MT["Merkle + sign"]:::work
+    KEY["Signing key"]:::bad
     CH --> MT
     KEY --> MT
-    MT --> RS
   end
-  VER["verifier / client<br/>holds ONLY the public key + proof"]:::good
-  RS -->|answer + proof + root| VER
+  VER["Verifier<br/>(public key only)"]:::good
+  MT -->|answer + proof| VER
 ```
 
 **Verifiable query sequence**
@@ -55,16 +52,17 @@ flowchart LR
 ```mermaid
 sequenceDiagram
   autonumber
-  participant C as client / verifier
+  participant C as Client
   participant S as RAG server
-  participant L as ledger (Merkle + sign)
+  participant L as Ledger
   C->>S: query
-  S->>L: append answer chunk to leaf
-  L-->>S: inclusion proof + signed root
-  S-->>C: answer + proof + root + pubkey
-  Note over C: verify locally - recompute leaf hash,<br/>fold proof to root, check root == signed root,<br/>Ed25519 verify(root, pubkey)
-  C->>C: accept (all pass) or reject (any fails)
+  S->>L: append answer → leaf
+  L-->>S: proof + signed root
+  S-->>C: answer + proof + root
+  Note over C: verify locally (no server trust)
+  C->>C: accept or reject
 ```
+
 ```
 INGEST:  document → chunk → SHA-256 hash → append to Merkle ledger → embed → sign root
 QUERY:   question → retrieve chunks → LLM answer → attach inclusion proofs + signed root

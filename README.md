@@ -118,6 +118,22 @@ Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chr
 
 ## Roadmap
 
+## Layout
+
+```
+ledger-rag/
+├── backend/          the RAG service - indexing, retrieval, and the proof-carrying answer API
+├── frontend/         a small UI for asking questions and inspecting the proof
+├── verifier-csharp/  standalone .NET verifier - check a proof without trusting the server
+├── verifier-java/    the same verifier, in Java
+├── bench/            benchmark.py - indexing and verification throughput
+├── docs/             architecture diagrams + a sample corpus
+├── docker-compose.yml  bring the backend + frontend up together
+├── DESIGN.md         the ledger structure, the proof format, the non-goals
+└── BENCHMARKS.md     reproducible numbers
+```
+
+
 Part of [parag-labs](https://github.com/parag-labs) - small, focused tools for building AI systems you can trust.
 
 ## License

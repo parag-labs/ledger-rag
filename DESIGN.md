@@ -33,6 +33,13 @@ This is the part worth being exact about.
 
 *(A flat-design companion to the Mermaid diagram in the [README](README.md#how-it-works): it draws the untrusted-server / public-key-verifier trust boundary, what an attacker can try, and the three independent checks that catch it.)*
 
+<details>
+<summary>Before the redraw - the earlier version of this diagram</summary>
+
+![threat model, before the redraw](docs/diagrams/threat-model-v1.png)
+
+</details>
+
 - **What it protects against:** silent modification of indexed content or history.
   If someone flips a bit in a chunk, swaps a proof sibling, alters a root, or forges
   a signature with the wrong key, verification fails. The tamper-fuzz suite asserts
@@ -70,6 +77,13 @@ The full query path - and where the proof gets attached and checked - looks like
 ![verifiable query sequence](docs/diagrams/verifiable-query-sequence.png)
 
 *(A flat-design companion to the Mermaid diagram in the [README](README.md#how-it-works): it separates ingest - where leaves are appended and the root signed - from the read-only query path, so it's clear the proof is attached, never minted, at answer time.)*
+
+<details>
+<summary>Before the redraw - the earlier version of this diagram</summary>
+
+![verifiable query sequence, before the redraw](docs/diagrams/verifiable-query-sequence-v1.png)
+
+</details>
 
 
 ## Trade-offs I made on purpose

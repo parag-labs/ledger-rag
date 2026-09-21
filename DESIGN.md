@@ -31,7 +31,7 @@ This is the part worth being exact about.
 
 ![threat model](docs/diagrams/threat-model.png)
 
-*(The same diagram renders inline as Mermaid in the [README](README.md#how-it-works); this PNG is a static export.)*
+*(A flat-design companion to the Mermaid diagram in the [README](README.md#how-it-works): it draws the untrusted-server / public-key-verifier trust boundary, what an attacker can try, and the three independent checks that catch it.)*
 
 - **What it protects against:** silent modification of indexed content or history.
   If someone flips a bit in a chunk, swaps a proof sibling, alters a root, or forges
@@ -69,7 +69,7 @@ The full query path - and where the proof gets attached and checked - looks like
 
 ![verifiable query sequence](docs/diagrams/verifiable-query-sequence.png)
 
-*(The same diagram renders inline as Mermaid in the [README](README.md#how-it-works); this PNG is a static export.)*
+*(A flat-design companion to the Mermaid diagram in the [README](README.md#how-it-works): it separates ingest - where leaves are appended and the root signed - from the read-only query path, so it's clear the proof is attached, never minted, at answer time.)*
 
 
 ## Trade-offs I made on purpose

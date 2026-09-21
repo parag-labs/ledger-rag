@@ -22,7 +22,7 @@ inclusion proof a third party can verify without trusting the server. Goals:
    can't be silently rewritten.
 3. Cheap verification: proofs are small and fast to check, so verifying is practical
    per answer, and independent - the verifier needs no database access.
-4. The verifier is portable (there are C# and Java verifiers) so "check this proof"
+4. The verifier is portable (there are C#, Java, Go, Rust, and TypeScript verifiers) so "check this proof"
    isn't a Python-only operation.
 
 ## What "tamper-evident" means here (threat model)
@@ -63,7 +63,7 @@ you can't reorder, truncate, or splice history without breaking a signature.
 
 **The verifier is pure and separable.** Verification needs only the leaf, the proof,
 and the trusted root/public key - no index, no server. That's why it ports cleanly to
-C# and Java: it's just hashing and one signature check.
+C#, Java, Go, Rust, and TypeScript: it's just hashing and one signature check.
 
 The full query path - and where the proof gets attached and checked - looks like this:
 

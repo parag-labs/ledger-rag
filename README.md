@@ -6,9 +6,12 @@ Retrieval-augmented generation where every answer ships with a cryptographic pro
   <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/C%23-.NET%2010-512BD4?logo=csharp&logoColor=white" />
   <img src="https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Go-1.23-00ADD8?logo=go&logoColor=white" />
+  <img src="https://img.shields.io/badge/Rust-stable-000000?logo=rust&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" />
   <img src="https://img.shields.io/badge/crypto-Ed25519%20%2B%20SHA--256%20Merkle-orange" />
-  <img src="https://img.shields.io/badge/tests-19%20passing-brightgreen" />
+  <img src="https://img.shields.io/badge/tests-93%20passing-brightgreen" />
   <img src="https://img.shields.io/badge/license-MIT-green" />
 </p>
 
@@ -108,22 +111,38 @@ frontend/  (planned) React proof-panel UI (verified ✅ / tampered ❌)
 
 ## Cross-language verification (polyglot proof)
 
-LedgerRAG's promise - *verify an answer without trusting the server* - is proven by **three independent verifiers in three languages**, each re-verifying the exact same Python-produced proof:
+LedgerRAG's promise - *verify an answer without trusting the server* - is proven by **six independent verifiers in six languages**, each re-verifying the exact same Python-produced proof:
 
-| Verifier | Stack | Location |
-|----------|-------|----------|
-| Python | `cryptography` | `backend/app/cli/verify.py` |
-| **C#** | .NET 10 + BouncyCastle | [`verifier-csharp/`](./verifier-csharp) |
-| **Java** | JDK 21 + BouncyCastle | [`verifier-java/`](./verifier-java) |
+| Verifier | Crypto stack | Tests | Location |
+|----------|--------------|:-----:|----------|
+| Python | `cryptography` | 19 | [`backend/`](./backend) |
+| **C#** | .NET 10 + BouncyCastle | sample | [`verifier-csharp/`](./verifier-csharp) |
+| **Java** | JDK 21 + BouncyCastle | 2 | [`verifier-java/`](./verifier-java) |
+| **Go** | `crypto/ed25519` + `crypto/sha256` (stdlib) | 24 | [`go/`](./go) |
+| **Rust** | `ed25519-dalek` + `sha2` | 24 | [`rust/`](./rust) |
+| **TypeScript** | Node.js `crypto` | 24 | [`ts/`](./ts) |
+
+Test counts are the automated suites per language (the C# CLI has no unit suite; it re-verifies the shared sample in CI). The Go, Rust, and TypeScript suites each include the same `sample-response.json` golden-vector check among their counts.
 
 ```bash
-# All three agree on the same proof produced by the Python server:
-python -m app.cli.verify ../sample-response.json          # ✅ VERIFIED
-dotnet run -c Release -- ../sample-response.json           # ✅ VERIFIED (C#)
-java -jar target/ledgerrag-verifier-0.1.0.jar ../sample-response.json  # ✅ VERIFIED (Java)
+# All six agree on the same proof produced by the Python server:
+python -m app.cli.verify ../sample-response.json                        # ✅ VERIFIED
+dotnet run -c Release -- ../sample-response.json                        # ✅ VERIFIED (C#)
+java -jar target/ledgerrag-verifier-0.1.0.jar ../sample-response.json   # ✅ VERIFIED (Java)
+(cd go   && go run ./cmd/verify ../sample-response.json)                # ✅ VERIFIED (Go)
+(cd rust && cargo run -q --bin ledgerrag-verify -- ../sample-response.json)  # ✅ VERIFIED (Rust)
+(cd ts   && node src/cli.ts ../sample-response.json)                    # ✅ VERIFIED (TypeScript)
 ```
 
-Three languages, three crypto stacks, one proof - that's what makes the verifiability **standards-based, not a trick**. Tamper with any cited source and all three reject it.
+Six languages, six crypto stacks, one proof - that's what makes the verifiability **standards-based, not a trick**. Tamper with any cited source and all six reject it.
+
+> **Subtleties the ports pin down.** Three details must match the Python reference
+> exactly or a valid proof fails to reproduce across languages: (1) the per-chunk
+> `sha256` integrity field is a **plain** SHA-256 of the chunk text, *without* the
+> `0x00` leaf-domain prefix used by the Merkle leaf hash; (2) the signed message
+> ends with the leaf count as **8 big-endian bytes**; and (3) signatures verify
+> against the **raw 32-byte** Ed25519 public key. A `prev_root` that is JSON `null`
+> *or* an empty string is treated as absent.
 
 ## Feature checklist
 
@@ -131,13 +150,13 @@ Three languages, three crypto stacks, one proof - that's what makes the verifiab
 - [x] Ed25519-signed, append-only, chained roots
 - [x] RAG pipeline with citations
 - [x] Proofs attached to every answer
-- [x] Independent verifier CLI (Python, C#, and Java)
+- [x] Independent verifier CLI (Python, C#, Java, Go, Rust, and TypeScript)
 - [x] Tamper-detection, fuzz-tested (thousands of randomized corruptions, all caught)
 - [ ] React proof-panel UI *(planned — the backend already returns everything it needs)*
 
 ## Tech stack
 
-Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chroma · OpenAI (with local fallback) · React + Vite · Docker · GitHub Actions
+Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chroma · OpenAI (with local fallback) · React + Vite · Go · Rust · TypeScript · Docker · GitHub Actions
 
 ## Design notes and numbers
 
@@ -152,7 +171,7 @@ Python · FastAPI · `cryptography` (Ed25519 + SHA-256 Merkle) · pgvector / Chr
 
 ## Roadmap
 
-The backend, the three-language verifier, and the proof-carrying answer API are done.
+The backend, the six-language verifier, and the proof-carrying answer API are done.
 The one remaining piece is the **React proof-panel UI** — a browser view for asking a
 question and inspecting the verified/tampered proof. The `frontend/` directory is
 reserved for it.
@@ -165,6 +184,9 @@ ledger-rag/
 ├── frontend/         (planned) a small React UI for asking questions and inspecting the proof
 ├── verifier-csharp/  standalone .NET verifier - check a proof without trusting the server
 ├── verifier-java/    the same verifier, in Java
+├── go/               the same verifier core in Go (stdlib crypto)
+├── rust/             the same verifier core in Rust (ed25519-dalek + sha2)
+├── ts/               the same verifier core in TypeScript (Node crypto)
 ├── bench/            benchmark.py - indexing and verification throughput
 ├── docs/             architecture diagrams + a sample corpus
 ├── docker-compose.yml  brings the backend up (the frontend UI is still planned)

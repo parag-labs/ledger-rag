@@ -1,0 +1,26 @@
+[package]
+name = "ledger-rag"
+version = "0.1.0"
+edition = "2021"
+description = "Cross-language port of LedgerRAG's Merkle + Ed25519 verifier core"
+license = "MIT"
+
+[lib]
+name = "ledger_rag"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ledgerrag-verify"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+ed25519-dalek = "2"
+hex = "0.4"
+getrandom = "0.2"
+
+[dev-dependencies]
+hex = "0.4"
+sha2 = "0.10"

@@ -1,0 +1,16 @@
+{
+  "name": "ledger-rag",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cross-language port of LedgerRAG's Merkle + Ed25519 verifier core.",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

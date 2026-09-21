@@ -19,5 +19,9 @@ keys/
 node_modules/
 dist/
 
+# Rust
+rust/target/
+rust/Cargo.lock
+
 # OS
 .DS_Store

@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Cross-language port of LedgerRAG's Merkle + Ed25519 verifier core.",
+  "engines": {
+    "node": ">=26"
+  },
   "scripts": {
     "test": "vitest run",
     "lint": "tsc --noEmit"

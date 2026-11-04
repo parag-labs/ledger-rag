@@ -1,5 +1,5 @@
 use ledger_rag::models::{Citation, Proof, ProofStepModel, QueryResponse, SignedRoot};
-use ledger_rag::{generate_keypair, sign_root, verify_response, MerkleTree};
+use ledger_rag::{MerkleTree, generate_keypair, sign_root, verify_response};
 use sha2::{Digest, Sha256};
 
 const SAMPLE: &str = include_str!("../../sample-response.json");

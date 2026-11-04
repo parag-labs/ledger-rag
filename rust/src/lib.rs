@@ -15,7 +15,7 @@ pub mod models;
 pub mod signing;
 pub mod verification;
 
-pub use merkle::{hash_leaf, hash_nodes, verify_inclusion, MerkleTree, ProofStep};
+pub use merkle::{MerkleTree, ProofStep, hash_leaf, hash_nodes, verify_inclusion};
 pub use models::{
     ChunkResult, Citation, Proof, ProofStepModel, QueryResponse, SignedRoot, VerificationResult,
 };

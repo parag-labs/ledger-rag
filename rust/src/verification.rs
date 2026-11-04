@@ -3,7 +3,7 @@
 
 use sha2::{Digest, Sha256};
 
-use crate::merkle::{verify_inclusion, ProofStep};
+use crate::merkle::{ProofStep, verify_inclusion};
 use crate::models::{ChunkResult, ProofStepModel, QueryResponse, VerificationResult};
 use crate::signing::verify_root;
 

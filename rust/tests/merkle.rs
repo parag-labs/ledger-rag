@@ -1,4 +1,4 @@
-use ledger_rag::merkle::{hash_leaf, hash_nodes, verify_inclusion, MerkleTree, ProofStep};
+use ledger_rag::merkle::{MerkleTree, ProofStep, hash_leaf, hash_nodes, verify_inclusion};
 
 fn leaves(items: &[&str]) -> Vec<Vec<u8>> {
     items.iter().map(|s| s.as_bytes().to_vec()).collect()

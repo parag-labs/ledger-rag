@@ -4,7 +4,7 @@
 
 use std::process::ExitCode;
 
-use ledger_rag::{verify_response, QueryResponse};
+use ledger_rag::{QueryResponse, verify_response};
 
 fn main() -> ExitCode {
     let args: Vec<String> = std::env::args().collect();

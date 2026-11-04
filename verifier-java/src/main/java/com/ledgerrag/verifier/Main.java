@@ -2,7 +2,7 @@ package com.ledgerrag.verifier;
 
 import java.io.File;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 
 import com.ledgerrag.verifier.Models.ChunkResult;
 import com.ledgerrag.verifier.Models.QueryResponse;

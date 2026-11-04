@@ -26,11 +26,11 @@ java -jar target/ledgerrag-verifier-0.1.0.jar ../sample-response.json
 **Valid:** `✅ VERIFIED (Java)` (exit 0) · **Tampered:** `❌ TAMPERED / INVALID (Java)` (exit 1)
 
 ```bash
-mvn test        # JUnit 5 unit tests
+mvn test        # JUnit 6 unit tests
 ```
 
 ## Stack
 
-Java 17 · Jackson (JSON) · BouncyCastle (Ed25519) · JUnit 5 · Maven
+Java 25 · Jackson 3 (JSON) · BouncyCastle (Ed25519) · JUnit 6 · Maven
 
 > Note: this module requires a JDK + Maven to build. The Python and C# verifiers in sibling folders are pre-verified; this shares their exact byte-level rules.

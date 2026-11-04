@@ -3,12 +3,12 @@
 Retrieval-augmented generation where every answer ships with a cryptographic proof linking it to signed, tamper-evident sources.</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/C%23-.NET%2010-512BD4?logo=csharp&logoColor=white" />
-  <img src="https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white" />
-  <img src="https://img.shields.io/badge/Go-1.23-00ADD8?logo=go&logoColor=white" />
-  <img src="https://img.shields.io/badge/Rust-stable-000000?logo=rust&logoColor=white" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Java-25-ED8B00?logo=openjdk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Go-1.27-00ADD8?logo=go&logoColor=white" />
+  <img src="https://img.shields.io/badge/Rust-1.99%20(2024)-000000?logo=rust&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-7-3178C6?logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" />
   <img src="https://img.shields.io/badge/crypto-Ed25519%20%2B%20SHA--256%20Merkle-orange" />
   <img src="https://img.shields.io/badge/tests-93%20passing-brightgreen" />
@@ -77,6 +77,8 @@ If a source is tampered with after indexing, its chunk hash no longer verifies a
 
 ## Quickstart (<5 min)
 
+Requirements: Python 3.14 for the backend (3.15 is pending upstream `onnxruntime` wheels, which `chromadb` needs). The verifier ports need .NET SDK 10, JDK 25 + Maven, Go 1.27, Rust 1.99+ (edition 2024), and Node.js 26 LTS (TypeScript 7).
+
 ```bash
 # Backend
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
@@ -117,7 +119,7 @@ LedgerRAG's promise - *verify an answer without trusting the server* - is proven
 |----------|--------------|:-----:|----------|
 | Python | `cryptography` | 19 | [`backend/`](./backend) |
 | **C#** | .NET 10 + BouncyCastle | sample | [`verifier-csharp/`](./verifier-csharp) |
-| **Java** | JDK 21 + BouncyCastle | 2 | [`verifier-java/`](./verifier-java) |
+| **Java** | JDK 25 + BouncyCastle | 2 | [`verifier-java/`](./verifier-java) |
 | **Go** | `crypto/ed25519` + `crypto/sha256` (stdlib) | 24 | [`go/`](./go) |
 | **Rust** | `ed25519-dalek` + `sha2` | 24 | [`rust/`](./rust) |
 | **TypeScript** | Node.js `crypto` | 24 | [`ts/`](./ts) |

@@ -8,7 +8,7 @@ use ed25519_dalek::{Signature, Signer, SigningKey, Verifier, VerifyingKey};
 /// Generate a fresh Ed25519 keypair from the operating system's CSPRNG.
 pub fn generate_keypair() -> (SigningKey, VerifyingKey) {
     let mut seed = [0u8; 32];
-    getrandom::getrandom(&mut seed).expect("OS RNG unavailable");
+    getrandom::fill(&mut seed).expect("OS RNG unavailable");
     let signing_key = SigningKey::from_bytes(&seed);
     let verifying_key = signing_key.verifying_key();
     (signing_key, verifying_key)

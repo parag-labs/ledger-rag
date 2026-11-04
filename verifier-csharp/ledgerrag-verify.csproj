@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <!-- Ed25519 is not in System.Security.Cryptography; BouncyCastle is the standard. -->
-    <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.7.0" />
   </ItemGroup>
 
 </Project>

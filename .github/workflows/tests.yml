@@ -93,3 +93,25 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm test
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Validate compose file
+        run: docker compose config --quiet
+      # Build-only: the image is never pushed or published.
+      - name: Build backend image
+        run: docker compose build backend
+      - name: Smoke test container
+        run: |
+          docker compose up -d backend
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:8000/health; then echo; exit 0; fi
+            sleep 2
+          done
+          docker compose logs backend
+          exit 1
+      - name: Stop container
+        if: always()
+        run: docker compose down
